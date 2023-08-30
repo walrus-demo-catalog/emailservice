@@ -12,6 +12,7 @@ spec:
       labels:
         app: emailservice
     spec:
+      replicas: ${replicas}
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:

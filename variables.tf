@@ -1,5 +1,5 @@
 # @group "Kubernetes Configuration"
-# @label "名称"
+# @label "Name"
 variable "name" {
   type        = string
   description = "Name of the deployment resource. Auto-generated if empty."
@@ -7,14 +7,23 @@ variable "name" {
 }
 
 # @group "Kubernetes Configuration"
-# @label "命名空间"
+# @label "Namespace"
 variable "namespace" {
-  description = "Namespace to deploy"
-  type        = string 
+  type        = string
+  description = "Namespace to deploy. Auto-generated if empty."
+  default     = ""
+}
+
+# @group "Kubernetes Configuration"
+# @label "Replicas"
+variable "replicas" {
+  type        = number
+  description = "Replicas to deploy"
+  default     = 1
 }
 
 # @group "Image Configuration"
-# @label "镜像仓库地址"
+# @label "Image Registry"
 variable "image_registry" {
   description = "Image registry"
   type        = string
@@ -23,7 +32,7 @@ variable "image_registry" {
 
 
 # @group "Image Configuration"
-# @label "镜像仓库项目"
+# @label "Image Repository"
 variable "image_repository" {
   description = "Image repository"
   type        = string
@@ -32,7 +41,7 @@ variable "image_repository" {
 
 
 # @group "Image Configuration"
-# @label "镜像版本"
+# @label "Image Tag"
 variable "image_version" {
   description = "Image tag"
   type        = string
