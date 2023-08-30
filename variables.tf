@@ -1,4 +1,12 @@
 # @group "Kubernetes Configuration"
+# @label "名称"
+variable "name" {
+  type        = string
+  description = "Name of the deployment resource. Auto-generated if empty."
+  default     = ""
+}
+
+# @group "Kubernetes Configuration"
 # @label "命名空间"
 variable "namespace" {
   description = "Namespace to deploy"
