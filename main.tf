@@ -7,15 +7,6 @@ terraform {
   }
 }
 
-resource "kubectl_manifest" "namespace" {
-  yaml_body = <<YAML
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: ${local.namespace}
-YAML
-}
-
 data "kubectl_path_documents" "manifest" {
   pattern = "${path.module}/emailservice.yaml"
   vars = {
