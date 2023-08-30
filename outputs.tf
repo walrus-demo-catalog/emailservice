@@ -1,4 +1,4 @@
-output "service_ip" {
-  description = "Service IP"
-  value       = data.kubernetes_service.emailservice.spec.0.cluster_ip
+output "service_name" {
+  description = "Service name"
+  value       = var.service_name
 }

@@ -8,7 +8,7 @@ terraform {
 }
 
 data "kubectl_path_documents" "manifest" {
-  pattern = "${path.module}/emailservice.yaml"
+  pattern = "${path.module}/manifest.yaml"
   vars = {
     namespace        = local.namespace 
     image_registry   = var.image_registry
@@ -25,17 +25,6 @@ resource "kubectl_manifest" "manifest" {
   yaml_body = element(data.kubectl_path_documents.manifest.documents, count.index)
 }
 
-data "kubernetes_service" "emailservice" {
-  depends_on = [kubectl_manifest.manifest]
-
-  metadata {
-    name      = local.emailservice_service_name
-    namespace = local.namespace
-  }
-}
-
 locals {
-  name                      = coalesce(var.name, "${var.walrus_metadata_service_name}")
   namespace                 = coalesce(var.namespace, var.walrus_metadata_namespace_name)
-  emailservice_service_name = var.emailservice_service_name
 }
