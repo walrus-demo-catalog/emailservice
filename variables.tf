@@ -36,7 +36,7 @@ variable "image_repository" {
 variable "image_version" {
   description = "Image tag"
   type        = string
-  default     = "v0.6.0"
+  default     = "v0.8.0"
 }
 
 # @hidden
