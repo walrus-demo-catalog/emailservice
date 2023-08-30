@@ -49,9 +49,9 @@ variable "image_version" {
 }
 
 # @hidden
-variable "emailservice_service_name" {
+variable "service_name" {
   type        = string
-  description = "Online Boutique emailservice service name"
+  description = "Service name"
   default     = "emailservice"
 }
 
