@@ -4,6 +4,7 @@ metadata:
   name: emailservice
   namespace: ${namespace}
 spec:
+  replicas: ${replicas}
   selector:
     matchLabels:
       app: emailservice
@@ -12,7 +13,6 @@ spec:
       labels:
         app: emailservice
     spec:
-      replicas: ${replicas}
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
