@@ -1,0 +1,100 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template emailservice
+components:
+  schemas:
+    variables:
+      type: object
+      properties:
+        name:
+          title: Name
+          type: string
+          description: Name of the deployment resource. Auto-generated if empty.
+          default: ""
+          nullable: true
+          x-walrus-ui:
+            order: 1
+            group: Deploymemt
+        namespace:
+          title: Namespace
+          type: string
+          description: Namespace to deploy. Auto-generated if empty.
+          default: ""
+          nullable: true
+          x-walrus-ui:
+            order: 2
+            group: Deploymemt
+        replicas:
+          title: Replicas
+          type: number
+          description: Replicas to deploy
+          default: 1
+          nullable: true
+          x-walrus-ui:
+            order: 3
+            group: Deploymemt
+        image_registry:
+          title: Image Registry
+          type: string
+          description: Image registry
+          default: docker.io
+          nullable: true
+          x-walrus-ui:
+            order: 4
+            group: Image
+        image_repository:
+          title: Image Repository
+          type: string
+          description: Image repository
+          default: liyinlin
+          nullable: true
+          x-walrus-ui:
+            order: 5
+            group: Image
+        image_version:
+          title: Image Version
+          type: string
+          description: Image tag
+          default: v0.8.0
+          nullable: true
+          x-walrus-ui:
+            order: 6
+            group: Image
+        service_name:
+          title: Service Name
+          type: string
+          description: Service name
+          default: emailservice
+          nullable: true
+          x-walrus-ui:
+            order: 7
+            group: Deploymemt
+        context:
+          title: Context
+          type: object
+          description: |
+            Receive contextual information. When Walrus deploys, Walrus will inject specific contextual information into this field.
+
+            Examples:
+            ```
+            context:
+              project:
+                name: string
+                id: string
+              environment:
+                name: string
+                id: string
+              resource:
+                name: string
+                id: string
+            ```
+          default: {}
+          nullable: true
+          additionalProperties:
+            type: object
+            x-walrus-ui:
+              colSpan: 12
+          x-walrus-ui:
+            colSpan: 12
+            order: 8
+            hidden: true
